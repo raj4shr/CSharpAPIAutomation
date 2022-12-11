@@ -13,7 +13,7 @@ public class GetAllCheckItems
         //Executing the request
         response = client.Execute(request);
         //Converting json to custom class
-        List<TestCaseInfo> testCaseInfo = JsonConvert.DeserializeObject<List<TestCaseInfo>>(response.Content);
+        List<JsonReturnData> testCaseInfo = JsonConvert.DeserializeObject<List<JsonReturnData>>(response.Content);
         //Using fluent assertions
         testCaseInfo.Count.Should().Be(17, "Validating count");
     }

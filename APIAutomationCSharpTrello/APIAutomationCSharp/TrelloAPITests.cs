@@ -1,4 +1,6 @@
-﻿namespace APIAutomationCSharp;
+﻿using System.Collections.ObjectModel;
+
+namespace APIAutomationCSharp;
 
 [TestFixture]
 public class APIRequests : CommonClass
@@ -12,30 +14,31 @@ public class APIRequests : CommonClass
 
     }
 
-    [TestCase("Board created by api automation..... try 2",TestName =" CreateTrelloBoard"),Order(1)]
-   // [TestCase("Test Case 8", TestName = " Test Case 2")]
-   // [TestCase("Test Case 9", TestName = " Test Case 3")]
+    [Test,Order(1),TestCaseSource(nameof(boardNames))]
     public void CreateANewBoardAPI(string boardName)
     {
         CreateTrelloBoard createTrelloBoard = new CreateTrelloBoard();
         createTrelloBoard.createTrelloBoard(boardName, response, request, client);
-        Thread.Sleep(5000);
+        //Just to see it create in realtime
+        Thread.Sleep(1000);
     }
 
-    [Test,Order(3)]
-    public void DeleteATrelloBoard()
+    [Test,Order(3),TestCaseSource(nameof(index))]
+    public void DeleteATrelloBoard(int index)
     {
         DeleteTrelloBoard deleteTBoard=new DeleteTrelloBoard();
-        deleteTBoard.deleteTrelloBoard(_boardID, response, request, client);
-        Thread.Sleep(5000);
+        deleteTBoard.deleteTrelloBoard(boardID[index], response, request, client);
+        //Just to see it delete in real time
+        Thread.Sleep(1000);
     }
 
-    [Test,Order(2)]
-    public void EditTrelloBoard()
+    [Test,Order(2),TestCaseSource(nameof(index))]
+    public void EditTrelloBoard(int index)
     {
         EditTrelloB editBoard = new EditTrelloB();
-        editBoard.editTrelloBoard(_boardID, "Updated using c# API automation", response, request, client);
-        Thread.Sleep(5000);
+        editBoard.editTrelloBoard(boardID[index],index, response, request, client);
+        //Just to see it update in real time
+        Thread.Sleep(1000);
     }
 }
 

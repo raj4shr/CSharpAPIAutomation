@@ -10,7 +10,17 @@ namespace APIAutomationCSharp;
 public class CommonClass
 {
     //To use the id of the new trello board created to update and then delete the board
-    public static string? _boardID;
+    public static int[] index ={0,1,2,3,4};
+
+    //string array values to create new trello board and delete it
+    public static string[] boardNames = { "Board1", "Board2", "Board3", "Board4", "Board5" };
+
+    //string array values to update the boards
+    public static string[] updateNames = { "Update1", "Update2", "Update3", "Update4", "Update5" };
+
+    //string array values to hold the board id when its created and use it to delete
+    public static List<string> boardID = new(5);
+
     public RestClient? client { get; set; }
 
     public RestResponse? response { get;set; }

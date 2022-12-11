@@ -1,6 +1,6 @@
 ﻿namespace APIAutomationCSharp
 {
-    public class TestCaseInfo
+    public class JsonReturnData
     {
     public string Id { get; set; }
     public string Name { get; set; }

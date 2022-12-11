@@ -15,7 +15,8 @@
             response = client.Execute(request);
             //Converting json to custom class
             createBoardInfo cbInfo = JsonConvert.DeserializeObject<createBoardInfo>(response.Content);
-            CommonClass._boardID = cbInfo.id;
+            //Getting the ID's of new boards created to be used as path variable for Update and Delete API calls
+            CommonClass.boardID.Add(cbInfo.id);
             //Using fluent assertions
             cbInfo.id.Should().NotBe(null);
         }
