@@ -17,14 +17,11 @@ public class GetAllCheckItems
         //Using fluent assertions
         testCaseInfo.Count.Should().Be(17, "Validating count");
     }
+
+    
 }
 
 
 
 
-        /*JToken jt = JToken.Parse(jsonString);
-        var beautiful = jt.ToString(Formatting.Indented);
-        string str = beautiful;
-        beautiful = str.Trim(new char[] { '[', ']' });
-        Console.WriteLine(beautiful);
-        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));*/
+        

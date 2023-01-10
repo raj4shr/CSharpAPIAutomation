@@ -4,6 +4,9 @@ global using System.Collections.Generic;
 global using Newtonsoft.Json;
 global using NUnit.Framework;
 global using FluentAssertions;
+using System.Security.Policy;
+using System.Net;
+
 
 namespace APIAutomationCSharp;
 
@@ -26,6 +29,11 @@ public class CommonClass
     public RestResponse? response { get;set; }
 
     public RestRequest? request { get; set; }
+    
+    public HttpClient? httpClient { get; set; }
+    public HttpResponseMessage? responseMessage { get; set; }
+    public HttpRequestMessage? requestMessage { get; set; }
+
 
     [SetUp]
     public void TrelloAPIInitialize()
@@ -35,6 +43,7 @@ public class CommonClass
         request = new();
         request.AddQueryParameter("key", "a2217463f78c8c772148298e82eadb4c");
         request.AddQueryParameter("token", "4284fd45a6edb09b08952b601f5f7894447170cabc80dc9fe141cf3bce7e38b6");
+       
 
     }
 

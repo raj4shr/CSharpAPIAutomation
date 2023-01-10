@@ -3,6 +3,7 @@
 namespace APIAutomationCSharp;
 
 [TestFixture]
+
 public class APIRequests : CommonClass
 {
     
@@ -39,6 +40,26 @@ public class APIRequests : CommonClass
         editBoard.editTrelloBoard(boardID[index],index, response, request, client);
         //Just to see it update in real time
         Thread.Sleep(1000);
+    }
+
+    [Test]
+    public void testtest()
+    {
+        string S = "Wed";
+        int K = 1;
+        string[] WeekDays = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
+        int index = Array.IndexOf(WeekDays, S);
+        Console.WriteLine(WeekDays[(index + K) % 7]);
+    }
+    [Test]
+    public void numofdays()
+    {
+        string[] dayOfWeek = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
+        int k = 10;
+        string s = "Thu";
+        int index = Array.IndexOf(dayOfWeek, s);
+        string daynum = dayOfWeek[(index + k) % 7];
+        Console.WriteLine(daynum);
     }
 }
 
