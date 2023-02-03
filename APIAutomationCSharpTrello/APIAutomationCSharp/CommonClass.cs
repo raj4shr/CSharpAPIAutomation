@@ -41,8 +41,8 @@ public class CommonClass
         //Common initialazation for CRUD
         client= new("https://api.trello.com");
         request = new();
-        request.AddQueryParameter("key", "a2217463f78c8c772148298e82eadb4c");
-        request.AddQueryParameter("token", "4284fd45a6edb09b08952b601f5f7894447170cabc80dc9fe141cf3bce7e38b6");
+        request.AddQueryParameter("key", "your key");
+        request.AddQueryParameter("token", "your token");
        
 
     }
